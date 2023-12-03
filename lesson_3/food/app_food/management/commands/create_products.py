@@ -13,10 +13,8 @@ class Command(BaseCommand):
             ('Клубника', 520.10, 'Очень кислая клубника'),
         ]
         for product in products:
-            new_product = Product.objects.create(name=product[0], price=product[1], description=product[2])
-
+            new_product = Product.objects.create(name=product[0],
+                                                 price=product[1], description=product[2])
             new_product.save()
             self.stdout.write(f'Продукт {product[0]} создан.')
         self.stdout.write(self.style.SUCCESS('Продукты созданы'))
-
-
